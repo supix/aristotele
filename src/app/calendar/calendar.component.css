@@ -1,0 +1,11 @@
+.calendar {
+    margin: auto;
+    position: relative;
+}
+
+.calendar li {
+    width: 20%;
+    list-style: none;
+    border: 1px gray solid;
+    margin: 10px 10px 10px 10px;
+}
