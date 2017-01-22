@@ -1,6 +1,6 @@
-<ul class="calendar">
-  <li *ngFor="let d of getDates()" class="day">
-    <div class="date">Day</div>
-    <div class="arrangement">Arrangement</div>
-  </li>
-</ul>
+<div class="calendar">
+  <div *ngFor="let d of getDates()" class="row day">
+    <app-day-date class="col-md-2" [date]="d"></app-day-date>
+    <app-arrangement class="col-md-10"></app-arrangement>
+  </div>
+</div>
