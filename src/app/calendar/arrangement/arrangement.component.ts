@@ -11,5 +11,4 @@ export class ArrangementComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

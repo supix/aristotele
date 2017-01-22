@@ -9,6 +9,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { DayDateComponent } from './calendar/day-date/day-date.component';
 import { ArrangementComponent } from './calendar/arrangement/arrangement.component';
 import { VehicleComponent } from './calendar/arrangement/vehicle/vehicle.component';
+import { UnallocatedComponent } from './calendar/arrangement/unallocated/unallocated.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { VehicleComponent } from './calendar/arrangement/vehicle/vehicle.compone
     CalendarComponent,
     DayDateComponent,
     ArrangementComponent,
-    VehicleComponent
+    VehicleComponent,
+    UnallocatedComponent
   ],
   imports: [
     BrowserModule,

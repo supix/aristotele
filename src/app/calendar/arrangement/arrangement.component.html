@@ -1,3 +1,16 @@
 <div class="row arrangement">
   <app-vehicle></app-vehicle>
+  <app-vehicle></app-vehicle>
+  <app-vehicle></app-vehicle>
 </div>
+<ul class="row unallocated text-danger">
+  <li>
+    <app-unallocated (click)="go()" [name]="'pippo'"></app-unallocated>
+  </li>
+  <li>
+    <app-unallocated (click)="go()" [name]="'pluto'"></app-unallocated>
+  </li>
+  <li>
+    <app-unallocated (click)="go()" [name]="'topolino'"></app-unallocated>
+  </li>
+</ul>
