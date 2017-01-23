@@ -11,4 +11,8 @@ export class ArrangementComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  go() { 
+    console.log("ciao"); 
+  }
 }

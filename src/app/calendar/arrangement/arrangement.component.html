@@ -1,16 +1,22 @@
 <div class="row arrangement">
-  <app-vehicle></app-vehicle>
-  <app-vehicle></app-vehicle>
-  <app-vehicle></app-vehicle>
+  <app-vehicle class="col-md-4"></app-vehicle>
+  <app-vehicle class="col-md-4"></app-vehicle>
+  <app-vehicle class="col-md-4"></app-vehicle>
+  <app-vehicle class="col-md-4"></app-vehicle>
+  <app-vehicle class="col-md-4"></app-vehicle>
+  <app-vehicle class="col-md-4"></app-vehicle>
+  <app-vehicle class="col-md-4"></app-vehicle>
 </div>
-<ul class="row unallocated text-danger">
-  <li>
-    <app-unallocated (click)="go()" [name]="'pippo'"></app-unallocated>
-  </li>
-  <li>
-    <app-unallocated (click)="go()" [name]="'pluto'"></app-unallocated>
-  </li>
-  <li>
-    <app-unallocated (click)="go()" [name]="'topolino'"></app-unallocated>
-  </li>
-</ul>
+<div class="row unallocated text-danger">
+  <ul class="list-inline col-md-12 well">
+    <li>
+      <app-unallocated (click)="go()" [name]="'pippo'"></app-unallocated>
+    </li>
+    <li>
+      <app-unallocated (click)="go()" [name]="'pluto'"></app-unallocated>
+    </li>
+    <li>
+      <app-unallocated (click)="go()" [name]="'topolino'"></app-unallocated>
+    </li>
+  </ul>
+</div>

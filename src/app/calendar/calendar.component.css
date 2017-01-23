@@ -1,4 +1,4 @@
 .day {
-    margin: 10px;
-    border: 1px gray solid;
+    margin: 10px 0;
+    border-bottom: 1px gray dashed;
 }
