@@ -3,10 +3,7 @@
     <i class="fa fa-car fa-2x" aria-hidden="true"></i>
   </div>
   <ul class="pupil-list list-inline">
-    <li class="text-nowrap"><i class="fa fa-smile-o" aria-hidden="true"></i> Mario</li>
-    <li class="text-nowrap"><i class="fa fa-smile-o" aria-hidden="true"></i> Samantha</li>
-    <li class="text-nowrap"><i class="fa fa-smile-o" aria-hidden="true"></i> Giovanni</li>
-    <li class="text-nowrap"><i class="fa fa-smile-o" aria-hidden="true"></i> Michele</li>
+    <li *ngFor="let n of vehicle.names"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;{{ n }}</li>
   </ul>
   <div></div>
 </div>

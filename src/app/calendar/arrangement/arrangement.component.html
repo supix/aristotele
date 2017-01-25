@@ -1,11 +1,5 @@
 <div class="row arrangement">
-  <app-vehicle class="col-md-4"></app-vehicle>
-  <app-vehicle class="col-md-4"></app-vehicle>
-  <app-vehicle class="col-md-4"></app-vehicle>
-  <app-vehicle class="col-md-4"></app-vehicle>
-  <app-vehicle class="col-md-4"></app-vehicle>
-  <app-vehicle class="col-md-4"></app-vehicle>
-  <app-vehicle class="col-md-4"></app-vehicle>
+  <app-vehicle *ngFor="let v of vehicles" class="col-md-4" [vehicle]="v"></app-vehicle>
 </div>
 <div class="row unallocated text-danger">
   <ul class="list-inline col-md-12 well">

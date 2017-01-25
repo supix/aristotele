@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Vehicle } from './vehicle/vehicle.model';
 
 @Component({
   selector: 'app-arrangement',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./arrangement.component.css']
 })
 export class ArrangementComponent implements OnInit {
-
-  constructor() { }
+  vehicles: Vehicle[];
+  constructor() {
+    this.vehicles = [];
+    for (let i = 0; i < 4; i++)
+      this.vehicles.push(Vehicle.getRandom());
+  }
 
   ngOnInit() {
   }
