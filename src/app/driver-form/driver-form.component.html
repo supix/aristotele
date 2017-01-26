@@ -8,10 +8,11 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group has-success has-feedback">
     <label for="studentName" class="control-label col-md-2">Nome dello studente</label>
     <div class="col-md-4">
       <input type="text" id="studentName" class="form-control has-error" placeholder="Nome dello studente" [formControl]="myForm.controls['studentName']">
+      <i class="glyphicon glyphicon-ok form-control-feedback"></i>
     </div>
     <div *ngIf="myForm.controls['studentName'].hasError('required') && myForm.controls['studentName'].touched" class="col-md-6 alert alert-danger">
       Indica il nome dello studente a te associato
@@ -26,10 +27,14 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group has-error has-feedback">
     <label for="address" class="control-label col-md-2">Indirizzo del domicilio</label>
     <div class="col-md-4">
       <input type="text" id="address" class="form-control" placeholder="Indirizzo del domicilio" [formControl]="myForm.controls['address']">
+      <i class="glyphicon glyphicon-remove form-control-feedback"></i>
+    </div>
+    <div class="col-md-4 alert alert-danger">
+      Indica l'indirizzo del domicilio
     </div>
   </div>
 
