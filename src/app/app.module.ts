@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,6 +10,7 @@ import { DayDateComponent } from './calendar/day-date/day-date.component';
 import { ArrangementComponent } from './calendar/arrangement/arrangement.component';
 import { VehicleComponent } from './calendar/arrangement/vehicle/vehicle.component';
 import { UnallocatedComponent } from './calendar/arrangement/unallocated/unallocated.component';
+import { DriverFormComponent } from './driver-form/driver-form.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,13 @@ import { UnallocatedComponent } from './calendar/arrangement/unallocated/unalloc
     DayDateComponent,
     ArrangementComponent,
     VehicleComponent,
-    UnallocatedComponent
+    UnallocatedComponent,
+    DriverFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     NgbModule.forRoot()
   ],
