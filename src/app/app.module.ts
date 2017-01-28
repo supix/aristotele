@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule, Routes } from '@angular/router'; 
 
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -11,6 +12,12 @@ import { ArrangementComponent } from './calendar/arrangement/arrangement.compone
 import { VehicleComponent } from './calendar/arrangement/vehicle/vehicle.component';
 import { UnallocatedComponent } from './calendar/arrangement/unallocated/unallocated.component';
 import { DriverFormComponent } from './driver-form/driver-form.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'calendar', pathMatch: 'full' },
+  { path: 'calendar', component: CalendarComponent },
+  { path: 'signIn', component: DriverFormComponent }
+];
 
 @NgModule({
   declarations: [
@@ -27,7 +34,8 @@ import { DriverFormComponent } from './driver-form/driver-form.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
