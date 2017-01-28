@@ -3,6 +3,14 @@
     margin: 5px 0;
 }
 
+.vehicle .heading {
+    padding: 0 10px;
+}
+
 ul.pupil-list {
     list-style-type: none;
+}
+
+ul.pupil-list li.busy-seat:hover {
+    background-color: #F0F0F0;
 }

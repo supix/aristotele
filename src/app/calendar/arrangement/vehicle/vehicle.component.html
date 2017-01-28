@@ -1,15 +1,20 @@
-<div class="vehicle bg-success row text-center">
-  <div class="col-md-6">
-    <div>
-      <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+<div class="vehicle text-center" [ngClass]="{'text-muted': vehicle.isFull() }">
+  <div class="heading row">
+    <div class="col-md-4">
+      <div>
+        <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+      </div>
+      <div>{{ vehicle.driverName }}</div>
     </div>
-    <div>{{ vehicle.driverName }}</div>
-    <div>Posti liberi: <span class="label"
-      [ngClass]="{'label-default': vehicle.isFull(), 'label-success': !(vehicle.isFull()) }"
-      >{{ vehicle.availableSeats() }}</span></div>
+    <div class="col-md-8 text-right">
+      <div>
+        <span class="label" [ngClass]="{'label-default': vehicle.isFull(), 'label-success': !(vehicle.isFull())}">Posti liberi</span>
+        <span class="label" [ngClass]="{'label-default': vehicle.isFull(), 'label-success': !(vehicle.isFull())}">{{ vehicle.availableSeats() }}</span>
+      </div>
+    </div>
   </div>
-  <ul class="pupil-list list-group col-md-6">
-    <li *ngFor="let n of vehicle.names" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ n }}</li>
+  <ul class="pupil-list list-group">
+    <li *ngFor="let n of vehicle.names" class="list-group-item busy-seat"><i class="fa fa-male" aria-hidden="true"></i>&nbsp;{{ n }}</li>
     <li *ngFor="let n of vehicle.availableSeatsArray()" class="list-group-item list-group-item-success"><i class="fa fa-check" aria-hidden="true"></i></li>
   </ul>
 </div>
