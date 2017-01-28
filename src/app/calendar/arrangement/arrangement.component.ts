@@ -10,7 +10,7 @@ export class ArrangementComponent implements OnInit {
   vehicles: Vehicle[];
   constructor() {
     this.vehicles = [];
-    for (let i = 0; i < 4; i++)
+    for (let i = 0; i < 3; i++)
       this.vehicles.push(Vehicle.getRandom());
   }
 
