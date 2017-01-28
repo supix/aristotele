@@ -1,5 +1,7 @@
 export class Vehicle {
+    driverName: string;
     constructor(public names: string[]) {
+        this.driverName = "Alonso";
     }
 
     public static getRandom(): Vehicle {

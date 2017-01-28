@@ -1,4 +1,8 @@
 .vehicle {
-    padding: 10px;
+    padding: 10px 5px;
     margin: 5px 0;
+}
+
+ul.pupil-list {
+    list-style-type: none;
 }

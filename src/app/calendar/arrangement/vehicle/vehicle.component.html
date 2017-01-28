@@ -1,9 +1,9 @@
-<div class="vehicle bg-success text-center">
-  <div>
-    <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+<div class="vehicle bg-success row">
+  <div class="col-md-5 text-center">
+    <div><i class="fa fa-car fa-2x" aria-hidden="true"></i></div>
+    <div>{{ vehicle.driverName }}</div>
   </div>
-  <ul class="pupil-list list-inline">
+  <ul class="pupil-list col-md-7">
     <li *ngFor="let n of vehicle.names"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;{{ n }}</li>
   </ul>
-  <div></div>
 </div>
