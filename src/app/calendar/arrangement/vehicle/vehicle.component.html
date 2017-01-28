@@ -1,9 +1,15 @@
-<div class="vehicle bg-success row">
-  <div class="col-md-5 text-center">
-    <div><i class="fa fa-car fa-2x" aria-hidden="true"></i></div>
+<div class="vehicle bg-success row text-center">
+  <div class="col-md-6">
+    <div>
+      <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+    </div>
     <div>{{ vehicle.driverName }}</div>
+    <div>Posti liberi: <span class="label"
+      [ngClass]="{'label-default': vehicle.isFull(), 'label-success': !(vehicle.isFull()) }"
+      >{{ vehicle.availableSeats() }}</span></div>
   </div>
-  <ul class="pupil-list col-md-7">
-    <li *ngFor="let n of vehicle.names"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;{{ n }}</li>
+  <ul class="pupil-list list-group col-md-6">
+    <li *ngFor="let n of vehicle.names" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ n }}</li>
+    <li *ngFor="let n of vehicle.availableSeatsArray()" class="list-group-item list-group-item-success"><i class="fa fa-check" aria-hidden="true"></i></li>
   </ul>
 </div>
