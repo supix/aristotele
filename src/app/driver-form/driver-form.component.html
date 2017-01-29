@@ -44,7 +44,7 @@
     <label for="name" class="control-label col-md-2">Di solito sono disponibile nei giorni</label>
     <div class="col-md-4">
       <div class="btn-group" role="group" aria-hidden="true">
-        <button *ngFor="let day of daysOfWeekNames()" type="button" class="btn btn-default" >{{ day }}</button>
+        <button *ngFor="let day of daysOfWeekNames()" (click)="clickAvailDay(day)" type="button" class="btn" [ngClass]="{ 'btn-primary': isSelectedDay(day), 'btn-default': !isSelectedDay(day) }">{{ day }}</button>
       </div>
     </div>
   </div>

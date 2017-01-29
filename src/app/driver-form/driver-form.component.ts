@@ -17,13 +17,17 @@ export class DriverFormComponent implements OnInit {
   nameCtrl: AbstractControl;
   studentNameCtrl: AbstractControl;
   defaultExitTimeCtrl: AbstractControl;
+  availDays: string[];
 
-  constructor(fb: FormBuilder) { 
+  constructor(fb: FormBuilder) {
+    this.availDays = [];
     this.myForm = fb.group({
       'name': ['', Validators.required],
       'studentName': ['', Validators.required],
       'defaultExitTime': ['', Validators.required]
     });
+    
+    //shortcut to control references
     this.nameCtrl = this.myForm.controls['name'];
     this.studentNameCtrl = this.myForm.controls['studentName'];
     this.defaultExitTimeCtrl = this.myForm.controls['defaultExitTime'];
@@ -36,7 +40,19 @@ export class DriverFormComponent implements OnInit {
     console.log('submitted: ' + JSON.stringify(value));
   }
 
-  public daysOfWeekNames(): string[] {
+  daysOfWeekNames(): string[] {
     return dayOfWeekNames;
+  }
+
+  clickAvailDay(day) {
+    let idx = this.availDays.indexOf(day);
+    if (idx >= 0)
+      this.availDays.splice(idx, 1);
+    else
+      this.availDays.push(day);
+  }
+
+  isSelectedDay(day): boolean {
+    return this.availDays.indexOf(day) >= 0;
   }
 }
