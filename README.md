@@ -1,4 +1,8 @@
-# Mytrialproj
+# Aristotele 
+
+This project is work in progress so far. It aims at creating a platform for arrange daily student travels to schools, where parents place their availability and students reserve a place in their cars. Thanks to this system, every day arrangement of is well known to everybody: students, drivers, parents.
+
+## Implementation details
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
 
