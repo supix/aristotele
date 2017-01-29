@@ -1,6 +1,6 @@
 # Aristotele 
 
-This project is work in progress so far. It aims at creating a platform for arrange daily student travels to schools, where parents place their availability and students reserve a place in their cars. Thanks to this system, every day arrangement of is well known to everybody: students, drivers, parents.
+This project is work in progress so far. It aims at creating a platform for arranging daily student travels to school, where parents give their availability and students reserve a place in their cars. Thanks to this system, daily arrangement is well known to everybody: students, drivers, parents.
 
 ## Implementation details
 
