@@ -5,6 +5,7 @@ import {
   AbstractControl,
   Validators
 } from '@angular/forms';
+import { dayOfWeekNames } from '../utils/dayOfWeekNames';
 
 @Component({
   selector: 'app-driver-form',
@@ -33,5 +34,9 @@ export class DriverFormComponent implements OnInit {
 
   onSubmit(value: string): void {
     console.log('submitted: ' + JSON.stringify(value));
+  }
+
+  public daysOfWeekNames(): string[] {
+    return dayOfWeekNames;
   }
 }

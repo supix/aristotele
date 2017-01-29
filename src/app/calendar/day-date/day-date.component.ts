@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { dayOfWeekNames } from '../../utils/dayOfWeekNames';
 
 @Component({
   selector: 'app-day-date',
@@ -14,7 +15,7 @@ export class DayDateComponent implements OnInit {
   }
 
   private getDayOfWeek(): string {
-    let names = ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
+    let names = dayOfWeekNames;
     return names[this.date.getDay()];
   }
 

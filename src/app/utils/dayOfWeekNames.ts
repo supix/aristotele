@@ -1,0 +1,1 @@
+export const dayOfWeekNames: string[] = ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
