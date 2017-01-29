@@ -13,15 +13,16 @@ import {
 })
 export class DriverFormComponent implements OnInit {
   myForm: FormGroup;
+  nameCtrl: AbstractControl;
   studentNameCtrl: AbstractControl;
 
   constructor(fb: FormBuilder) { 
     this.myForm = fb.group({
       'name': ['', Validators.required],
       'studentName': ['', Validators.required],
-      'male': [true, Validators.required],
-      'address': ['', Validators.required]
+      
     });
+    this.nameCtrl = this.myForm.controls['name'];
     this.studentNameCtrl = this.myForm.controls['studentName'];
   }
 
