@@ -23,6 +23,17 @@
     </div>
   </div>
 
+  <div class="form-group has-error has-feedback">
+    <label for="name" class="control-label col-md-2">Di solito esco di casa alle ore</label>
+    <div class="col-md-4">
+      <input class="form-control" id="defaultExitTime" ng2-datetime-picker time-only="true" [formControl]="defaultExitTimeCtrl" />
+      <i class="glyphicon glyphicon-remove form-control-feedback"></i>
+      <div class="alert alert-danger">
+        Indica l'orario in cui di solito esci di casa al mattino
+      </div>
+    </div>
+  </div>
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Invia dati</button>

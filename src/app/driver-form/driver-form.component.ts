@@ -15,15 +15,17 @@ export class DriverFormComponent implements OnInit {
   myForm: FormGroup;
   nameCtrl: AbstractControl;
   studentNameCtrl: AbstractControl;
+  defaultExitTimeCtrl: AbstractControl;
 
   constructor(fb: FormBuilder) { 
     this.myForm = fb.group({
       'name': ['', Validators.required],
       'studentName': ['', Validators.required],
-      
+      'defaultExitTime': ['', Validators.required]
     });
     this.nameCtrl = this.myForm.controls['name'];
     this.studentNameCtrl = this.myForm.controls['studentName'];
+    this.defaultExitTimeCtrl = this.myForm.controls['defaultExitTime'];
   }
 
   ngOnInit() {
