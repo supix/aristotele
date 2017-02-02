@@ -3,9 +3,13 @@ import {
   FormBuilder,
   FormGroup,
   AbstractControl,
+  FormControl,
   Validators
 } from '@angular/forms';
+
 import { dayOfWeekNames } from '../utils/dayOfWeekNames';
+import { DayOfWeek } from '../utils/day-of-week.enum';
+import { Driver } from './driver.model';
 
 @Component({
   selector: 'app-driver-form',
@@ -17,16 +21,18 @@ export class DriverFormComponent implements OnInit {
   nameCtrl: AbstractControl;
   studentNameCtrl: AbstractControl;
   defaultExitTimeCtrl: AbstractControl;
-  availDays: string[];
 
   constructor(fb: FormBuilder) {
-    this.availDays = [];
     this.myForm = fb.group({
       'name': ['', Validators.required],
       'studentName': ['', Validators.required],
       'defaultExitTime': ['', Validators.required]
     });
-    
+
+    dayOfWeekNames.forEach(
+      (d, i) => this.myForm.addControl('wd_' + i, new FormControl())
+    );
+
     //shortcut to control references
     this.nameCtrl = this.myForm.controls['name'];
     this.studentNameCtrl = this.myForm.controls['studentName'];
@@ -36,23 +42,26 @@ export class DriverFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(value: string): void {
-    console.log('submitted: ' + JSON.stringify(value));
-  }
+  onSubmit(value): void {
+    //construct array of DayOfWeek from received input
+    let days: DayOfWeek[] = [];
+    dayOfWeekNames.forEach((d, idx) => {
+      let name = 'wd_' + idx;
+      if (value[name])
+        days.push(idx);
+    });
 
-  daysOfWeekNames(): string[] {
+    var driver = new Driver(
+      value.name,
+      value.studentName,
+      value.defaultExitTime,
+      days);
+
+    console.log("Submitted: ", JSON.stringify(driver));
+}
+
+
+  getDaysOfWeek(): string[] {
     return dayOfWeekNames;
-  }
-
-  clickAvailDay(day) {
-    let idx = this.availDays.indexOf(day);
-    if (idx >= 0)
-      this.availDays.splice(idx, 1);
-    else
-      this.availDays.push(day);
-  }
-
-  isSelectedDay(day): boolean {
-    return this.availDays.indexOf(day) >= 0;
   }
 }

@@ -41,16 +41,17 @@
   </div>
 
   <div class="form-group">
-    <label for="name" class="control-label col-md-2">Di solito sono disponibile nei giorni</label>
-    <div class="col-md-4">
-      <div class="btn-group" role="group" aria-hidden="true">
-        <button *ngFor="let day of daysOfWeekNames()" (click)="clickAvailDay(day)" type="button" class="btn" [ngClass]="{ 'btn-primary': isSelectedDay(day), 'btn-default': !isSelectedDay(day) }">{{ day }}</button>
-      </div>
+    <div class="col-md-offset-2 col-md-10">
+      <label *ngFor="let d of getDaysOfWeek(); let i = index">
+          <input type="checkbox"
+                  [formControl]="this.myForm.controls['wd_' + i]">
+            {{d}}
+        </label>
     </div>
   </div>
 
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-md-offset-2 col-md-10">
       <button type="submit" class="btn btn-default">Invia dati</button>
     </div>
   </div>
