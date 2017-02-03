@@ -30,7 +30,7 @@ export class DriverFormComponent implements OnInit {
     });
 
     dayOfWeekNames.forEach(
-      (d, i) => this.myForm.addControl('wd_' + i, new FormControl())
+      (d, i) => this.myForm.addControl('wd_' + i, new FormControl(this.isWorkingDay(i)))
     );
 
     //shortcut to control references
@@ -58,10 +58,14 @@ export class DriverFormComponent implements OnInit {
       days);
 
     console.log("Submitted: ", JSON.stringify(driver));
-}
+  }
 
 
   getDaysOfWeek(): string[] {
-    return dayOfWeekNames;
+      return dayOfWeekNames;
+  }
+
+  isWorkingDay(d: DayOfWeek): boolean {
+    return ((d != DayOfWeek.SUNDAY) && (d != DayOfWeek.SATURDAY));
   }
 }
