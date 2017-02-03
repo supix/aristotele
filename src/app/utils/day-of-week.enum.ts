@@ -7,3 +7,7 @@ export enum DayOfWeek {
     SATURDAY,
     SUNDAY
 }
+
+export function isWorkingDay(d: DayOfWeek): boolean {
+    return ((d != DayOfWeek.SUNDAY) && (d != DayOfWeek.SATURDAY));
+}

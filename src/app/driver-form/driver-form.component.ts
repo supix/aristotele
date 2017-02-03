@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -17,6 +17,8 @@ import { Driver } from './driver.model';
   styleUrls: ['./driver-form.component.css']
 })
 export class DriverFormComponent implements OnInit {
+  @Input() driver: Driver = new Driver();
+
   myForm: FormGroup;
   nameCtrl: AbstractControl;
   studentNameCtrl: AbstractControl;
@@ -24,13 +26,15 @@ export class DriverFormComponent implements OnInit {
 
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
-      'name': ['', Validators.required],
-      'studentName': ['', Validators.required],
-      'defaultExitTime': ['', Validators.required]
+      'name': [this.driver.name, Validators.required],
+      'studentName': [this.driver.studentName, Validators.required],
+      'defaultExitTime': [this.driver.defaultExitTime, Validators.required]
     });
 
     dayOfWeekNames.forEach(
-      (d, i) => this.myForm.addControl('wd_' + i, new FormControl(this.isWorkingDay(i)))
+      (d, i) => 
+        this.myForm.addControl('wd_' + i,
+          new FormControl(this.driver.defaultDaysOfAvailability.indexOf(i) >= 0))
     );
 
     //shortcut to control references
@@ -60,12 +64,7 @@ export class DriverFormComponent implements OnInit {
     console.log("Submitted: ", JSON.stringify(driver));
   }
 
-
   getDaysOfWeek(): string[] {
       return dayOfWeekNames;
-  }
-
-  isWorkingDay(d: DayOfWeek): boolean {
-    return ((d != DayOfWeek.SUNDAY) && (d != DayOfWeek.SATURDAY));
   }
 }
