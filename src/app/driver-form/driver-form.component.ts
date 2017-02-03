@@ -26,8 +26,8 @@ export class DriverFormComponent implements OnInit {
 
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
-      'name': [this.driver.name, Validators.required],
-      'studentName': [this.driver.studentName, Validators.required],
+      'name': [this.driver.name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
+      'studentName': [this.driver.studentName, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
       'defaultExitTime': [this.driver.defaultExitTime, Validators.required]
     });
 

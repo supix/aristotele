@@ -1,29 +1,43 @@
 <h2 class="">Ecco chi guida</h2>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="form-horizontal">
 
-  <div class="form-group has-error has-feedback">
+  <div class="form-group has-feedback" 
+    [ngClass]="{'has-success':nameCtrl.valid && nameCtrl.touched, 'has-error':nameCtrl.invalid && nameCtrl.touched}">
     <label for="name" class="control-label col-md-2">Nome</label>
     <div class="col-md-4">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-fw fa-address-card-o" aria-hidden="true"></i></span>
         <input type="text" id="name" class="form-control" placeholder="Nome" [formControl]="nameCtrl">
       </div>
-      <div class="alert alert-danger">
+      <div class="alert alert-danger" *ngIf="nameCtrl.hasError('required') && nameCtrl.touched">
         Indica il nome
+      </div>
+      <div class="alert alert-danger" *ngIf="nameCtrl.hasError('minlength') && nameCtrl.touched">
+        Il nome deve contenere almeno 3 caratteri
+      </div>
+      <div class="alert alert-danger" *ngIf="nameCtrl.hasError('maxlength') && nameCtrl.touched">
+        Il nome deve contenere al massimo 15 caratteri
       </div>
     </div>
   </div>
 
-  <div class="form-group has-success has-feedback">
+  <div class="form-group has-feedback"
+    [ngClass]="{'has-success':studentNameCtrl.valid && nameCtrl.touched, 'has-error':studentNameCtrl.invalid && nameCtrl.touched}">  
     <label for="studentName" class="control-label col-md-2">Nome dello studente</label>
     <div class="col-md-4">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i></span>
-        <input type="text" id="studentName" class="form-control" placeholder="Nome dello studente" [formControl]="studentNameCtrl">
+        <input type="text" id="studentNameCtrl" class="form-control" placeholder="Nome dello studente" [formControl]="studentNameCtrl">
       </div>
-      <span *ngIf="studentNameCtrl.hasError('required') && studentNameCtrl.touched" class="alert alert-danger">
-        Indica il nome dello studente a te associato
-      </span>
+      <div class="alert alert-danger" *ngIf="studentNameCtrl.hasError('required') && studentNameCtrl.touched">
+        Indica il nome
+      </div>
+      <div class="alert alert-danger" *ngIf="studentNameCtrl.hasError('minlength') && studentNameCtrl.touched">
+        Il nome deve contenere almeno 3 caratteri
+      </div>
+      <div class="alert alert-danger" *ngIf="studentNameCtrl.hasError('maxlength') && studentNameCtrl.touched">
+        Il nome deve contenere al massimo 15 caratteri
+      </div>
     </div>
   </div>
 
