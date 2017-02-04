@@ -13,11 +13,14 @@ import { ArrangementComponent } from './calendar/arrangement/arrangement.compone
 import { VehicleComponent } from './calendar/arrangement/vehicle/vehicle.component';
 import { UnallocatedComponent } from './calendar/arrangement/unallocated/unallocated.component';
 import { DriverFormComponent } from './driver-form/driver-form.component';
+import { AuthComponent } from './auth/auth.component';
+import { MustBeLoggedIn } from './activation/must-be-logged-in';
 
 const routes: Routes = [
   { path: '', redirectTo: 'calendar', pathMatch: 'full' },
   { path: 'calendar', component: CalendarComponent },
-  { path: 'signIn', component: DriverFormComponent }
+  { path: 'signIn', component: DriverFormComponent, canActivate: [MustBeLoggedIn] },
+  { path: 'login', component: AuthComponent }
 ];
 
 @NgModule({
@@ -28,7 +31,8 @@ const routes: Routes = [
     ArrangementComponent,
     VehicleComponent,
     UnallocatedComponent,
-    DriverFormComponent
+    DriverFormComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     Ng2DatetimePickerModule
   ],
-  providers: [],
+  providers: [MustBeLoggedIn],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
