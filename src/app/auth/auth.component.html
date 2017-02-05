@@ -1,19 +1,45 @@
 <!--Pulling Awesome Font -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <div class="row">
-        <div class="col-md-offset-4 col-md-3">
-            <div class="form-login">
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <div class="form-login">
             <h4>Benvenuto!</h4>
-            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
-            <br/>
-            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
-            <br/>
-            <div class="wrapper">
-            <span class="group-btn">     
-                <a href="#" class="btn btn-primary btn-md">Entra <i class="fa fa-sign-in"></i></a>
-            </span>
-            </div>
-            </div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" >
+                <div class="form-group has-feedback" [ngClass]="{'has-success':ctrl('email').valid && ctrl('email').touched, 'has-error':ctrl('email').invalid && ctrl('email').touched}">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-fw fa-user" aria-hidden="true"></i></span>
+                        <input type="text" id="email" class="form-control" placeholder="Email" [formControl]="ctrl('email')">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="ctrl('email').hasError('required') && ctrl('email').touched">
+                        Indica l'email
+                    </div>
+                </div>
+                <div class="form-group has-feedback" [ngClass]="{'has-success':ctrl('password').valid && ctrl('password').touched, 'has-error':ctrl('password').invalid && ctrl('password').touched}">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-fw fa-key" aria-hidden="true"></i></span>
+                        <input type="password" id="password" class="form-control" placeholder="Password" [formControl]="ctrl('password')">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="ctrl('password').hasError('required') && ctrl('password').touched">
+                        Indica la password
+                    </div>
+                    <div class="alert alert-danger" *ngIf="ctrl('password').hasError('minlength') && ctrl('password').touched">
+                        La password deve contenere almeno 8 caratteri
+                    </div>
+                    <div class="alert alert-danger" *ngIf="ctrl('password').hasError('maxlength') && ctrl('password').touched">
+                        La password non può superare i 20 caratteri
+                    </div>
+                    <br/>
+                    <div class="wrapper">
+                        <span class="group-btn">
+                            <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
+                                Entra
+                                <i class="fa fa-sign-in"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+</div>
