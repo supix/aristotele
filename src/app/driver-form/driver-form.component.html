@@ -1,72 +1,72 @@
-<h2 class="">Ecco chi guida</h2>
-<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="form-horizontal">
+<div class="col-md-offset-3">
+  <h2 class="">Ecco chi guida</h2>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="form-horizontal">
 
-  <div class="form-group has-feedback" 
-    [ngClass]="{'has-success':nameCtrl.valid && nameCtrl.touched, 'has-error':nameCtrl.invalid && nameCtrl.touched}">
-    <label for="name" class="control-label col-md-2">Nome</label>
-    <div class="col-md-4">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-fw fa-address-card-o" aria-hidden="true"></i></span>
-        <input type="text" id="name" class="form-control" placeholder="Nome" [formControl]="nameCtrl">
-      </div>
-      <div class="alert alert-danger" *ngIf="nameCtrl.hasError('required') && nameCtrl.touched">
-        Indica il nome
-      </div>
-      <div class="alert alert-danger" *ngIf="nameCtrl.hasError('minlength') && nameCtrl.touched">
-        Il nome deve contenere almeno 3 caratteri
-      </div>
-      <div class="alert alert-danger" *ngIf="nameCtrl.hasError('maxlength') && nameCtrl.touched">
-        Il nome deve contenere al massimo 15 caratteri
+    <div class="form-group has-feedback" [ngClass]="{'has-success':nameCtrl.valid && nameCtrl.touched, 'has-error':nameCtrl.invalid && nameCtrl.touched}">
+      <label for="name" class="control-label col-md-2">Nome</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-fw fa-address-card-o" aria-hidden="true"></i></span>
+          <input type="text" id="name" class="form-control" placeholder="Nome" [formControl]="nameCtrl">
+        </div>
+        <div class="alert alert-danger" *ngIf="nameCtrl.hasError('required') && nameCtrl.touched">
+          Indica il nome
+        </div>
+        <div class="alert alert-danger" *ngIf="nameCtrl.hasError('minlength') && nameCtrl.touched">
+          Il nome deve contenere almeno 3 caratteri
+        </div>
+        <div class="alert alert-danger" *ngIf="nameCtrl.hasError('maxlength') && nameCtrl.touched">
+          Il nome deve contenere al massimo 15 caratteri
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="form-group has-feedback"
-    [ngClass]="{'has-success':studentNameCtrl.valid && nameCtrl.touched, 'has-error':studentNameCtrl.invalid && nameCtrl.touched}">  
-    <label for="studentName" class="control-label col-md-2">Nome dello studente</label>
-    <div class="col-md-4">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i></span>
-        <input type="text" id="studentNameCtrl" class="form-control" placeholder="Nome dello studente" [formControl]="studentNameCtrl">
-      </div>
-      <div class="alert alert-danger" *ngIf="studentNameCtrl.hasError('required') && studentNameCtrl.touched">
-        Indica il nome
-      </div>
-      <div class="alert alert-danger" *ngIf="studentNameCtrl.hasError('minlength') && studentNameCtrl.touched">
-        Il nome deve contenere almeno 3 caratteri
-      </div>
-      <div class="alert alert-danger" *ngIf="studentNameCtrl.hasError('maxlength') && studentNameCtrl.touched">
-        Il nome deve contenere al massimo 15 caratteri
+    <div class="form-group has-feedback" [ngClass]="{'has-success':studentNameCtrl.valid && nameCtrl.touched, 'has-error':studentNameCtrl.invalid && nameCtrl.touched}">
+      <label for="studentName" class="control-label col-md-2">Nome dello studente</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i></span>
+          <input type="text" id="studentNameCtrl" class="form-control" placeholder="Nome dello studente" [formControl]="studentNameCtrl">
+        </div>
+        <div class="alert alert-danger" *ngIf="studentNameCtrl.hasError('required') && studentNameCtrl.touched">
+          Indica il nome
+        </div>
+        <div class="alert alert-danger" *ngIf="studentNameCtrl.hasError('minlength') && studentNameCtrl.touched">
+          Il nome deve contenere almeno 3 caratteri
+        </div>
+        <div class="alert alert-danger" *ngIf="studentNameCtrl.hasError('maxlength') && studentNameCtrl.touched">
+          Il nome deve contenere al massimo 15 caratteri
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="form-group has-error has-feedback">
-    <label for="name" class="control-label col-md-2">Di solito esco di casa alle ore</label>
-    <div class="col-md-4">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-fw fa-clock-o" aria-hidden="true"></i></span>
-        <input class="form-control" id="defaultExitTime" ng2-datetime-picker time-only="true" [formControl]="defaultExitTimeCtrl">
-      </div>
-      <div class="alert alert-danger">
-        Indica l'orario in cui di solito esci di casa al mattino
+    <div class="form-group has-error has-feedback">
+      <label for="name" class="control-label col-md-2">Di solito esco di casa alle ore</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-fw fa-clock-o" aria-hidden="true"></i></span>
+          <input class="form-control" id="defaultExitTime" ng2-datetime-picker time-only="true" [formControl]="defaultExitTimeCtrl">
+        </div>
+        <div class="alert alert-danger">
+          Indica l'orario in cui di solito esci di casa al mattino
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="form-group checkboxes">
-    <div class="col-md-offset-2 col-md-10">
-      <label *ngFor="let d of getDaysOfWeek(); let i = index">
+    <div class="form-group checkboxes">
+      <div class="col-md-offset-2 col-md-10">
+        <label *ngFor="let d of getDaysOfWeek(); let i = index">
           <input type="checkbox"
                   [formControl]="this.myForm.controls['wd_' + i]">
             {{d}}
         </label>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-      <button type="submit" class="btn btn-default" [disabled]="myForm.invalid">Invia dati</button>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <button type="submit" class="btn btn-default" [disabled]="myForm.invalid">Invia dati</button>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>

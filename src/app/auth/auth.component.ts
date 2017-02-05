@@ -11,11 +11,11 @@ import {
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  email: string;
+  loggedIn: boolean;
   form: FormGroup;
 
   constructor(fb: FormBuilder) { 
-    this.email = '';
+    this.loggedIn = !!localStorage.getItem('username');
 
     this.form = fb.group({
       'email': ['', Validators.required],
@@ -27,8 +27,7 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit(value): void {
-    this.email = value.email;
-    //console.log(this.getEmail(), " ", this.isLoggedIn());
+    localStorage.setItem('username', value.email);
   }
 
   ctrl(name: string): AbstractControl {
@@ -36,10 +35,6 @@ export class AuthComponent implements OnInit {
   }
 
   public isLoggedIn(): boolean {
-    return this.email != '';
-  }
-
-  public getEmail(): string {
-    return this.email;
+    return this.loggedIn;
   }
 }
